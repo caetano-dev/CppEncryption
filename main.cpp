@@ -10,13 +10,9 @@ string encrypt(string message)
     {
         if (message[i] >= 'a' && message[i] <= 'z')
         {
-            encrypted_message += message[i] + 9;
+            encrypted_message += message[i] - 9;
         }
 
-        else if (message[i] >= 'A' && message[i] <= 'Z')
-        {
-            encrypted_message += message[i] + 9;
-        }
         else
         {
             encrypted_message += message[i];
@@ -32,13 +28,9 @@ string decrypt(string message)
     {
         if (message[i] >= 'a' && message[i] <= 'z')
         {
-            decrypted_message += message[i] - 9;
+            decrypted_message += message[i] + 9;
         }
 
-        else if (message[i] >= 'A' && message[i] <= 'Z')
-        {
-            decrypted_message += message[i] - 9;
-        }
         else
         {
             decrypted_message += message[i];
@@ -57,6 +49,7 @@ int main()
 
     cout << "Enter your choice: " << endl;
     cin >> choice;
+    choice = tolower(choice);
     cout << "Enter your message: " << endl;
     cin >> message;
 
