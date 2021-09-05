@@ -6,17 +6,9 @@ string encrypt(string message)
 {
     string encrypted_message;
 
-    for (int i = 0; i < message.length() && message[i] != '\0'; i++)
+    for (int i = 0; i < message.length(); i++)
     {
-        if (message[i] >= 'a' && message[i] <= 'z')
-        {
-            encrypted_message += message[i] - 9;
-        }
-
-        else
-        {
-            encrypted_message += message[i];
-        }
+        encrypted_message += (char)message[i] + 4;
     }
     return encrypted_message;
 }
@@ -24,17 +16,9 @@ string encrypt(string message)
 string decrypt(string message)
 {
     string decrypted_message;
-    for (int i = 0; i < message.length() && message[i] != '\0'; i++)
+    for (int i = 0; i < message.length(); i++)
     {
-        if (message[i] >= 'a' && message[i] <= 'z')
-        {
-            decrypted_message += message[i] + 9;
-        }
-
-        else
-        {
-            decrypted_message += message[i];
-        }
+        decrypted_message += (char)message[i] - 4;
     }
     return decrypted_message;
 }
@@ -42,9 +26,9 @@ string decrypt(string message)
 int main()
 {
 
-    cout << "\nWelcome to the Encryption algorythm\n Usage:\n 1 for encrypting\n 2 for decrypting \n"
+    cout << "\nWelcome to the Encryption algorythm\n Usage:\n e for encrypting\n d for decrypting \n"
          << endl;
-    int choice;
+    char choice;
     string message;
 
     cout << "Enter your choice: " << endl;
@@ -55,11 +39,11 @@ int main()
 
     switch (choice)
     {
-    case 1:
+    case 'e':
         cout << "Encrypted message: " << encrypt(message) << endl;
         break;
 
-    case 2:
+    case 'd':
         cout << "Decrypted message: " << decrypt(message) << endl;
         break;
     }
