@@ -33,7 +33,6 @@ int main()
 
     cout << "Enter your choice: " << endl;
     cin >> choice;
-    choice = tolower(choice);
     cout << "Enter your message: " << endl;
     cin >> message;
 
